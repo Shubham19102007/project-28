@@ -11,8 +11,8 @@ var mango1,mango2,mango3,mango4,mango5,mango6,mango7,mango8,mango9,mango10,mango
 var world,boy;
 
 //Declare launcherObject and launchForce variable here
-var launcherObject 
-var launchForce=100
+var launcherObj
+var launchForce = 100;
 
 function preload(){
 	boy=loadImage("images/boy.png");
@@ -41,7 +41,7 @@ function setup() {
 	treeObj=new tree(1050,580);
 	groundObject=new ground(width/2,600,width,20);
   //create launcherObject here
-
+  launcherObj = new launcher (stoneObj.body,{x:235,y:420})
 
 	Engine.run(engine);
 }
@@ -50,6 +50,7 @@ function draw() {
 
   background(230);
   textSize(25);
+  text("Press Space to get a second Chance to Play!!",50 ,50);
   image(boy ,200,340,200,300);
   
 
@@ -70,7 +71,7 @@ function draw() {
   stoneObj.display();
   groundObject.display();
   // display launcher object here
-    
+  launcherObj.display();
 
 
   detectollision(stoneObj,mango1);
@@ -89,26 +90,23 @@ function draw() {
 
 //create mouseDragged function here
 function mouseDragged(){
-  Matter.Body.setPosition(stone.body,{x:mouseX,y:mouseY})
-  }
-
+  Matter.Body.setPosition(stoneObj.body,{x:mouseX,y:mouseY})
+launcherObj.attach(stoneObj.body);  
+}
+  
+  
 //create mouseReleased function here
 function mouseReleased(){
-  chain.fly();
-      }
-
-//create keyPressed function here
-function keyPressed(){
-if(keyCode ===32 ){
-Matter.Body.setPosition(stoneObj.body,{x:235,y:420})
-
-
+launcher.fly(); 
 
 }
 
 
-
-
+  //create keyPressed function here
+function keyPressed(){
+if (keyCode === 32){
+ Matter.Body.setPosition(stoneObj.body,{x:235,y:420}) 
+}
 
 
 }

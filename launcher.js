@@ -7,18 +7,18 @@ class launcher{
             length: 10
         }
         this.pointB= point
-        this.launcher = Constraint.create(options);
-        World.add(world, this.launcher);
+        this.launcherObj = Constraint.create(options);
+        World.add(world, this.launcherObj);
     }
 
          fly(){
-        this.launcher.bodyA = null
+        this.launcherObj.bodyA = null
     }
 
 
     display(){
-        if (this.launcher.bodyA){
-        var pointA = this.launcher.bodyA.position;
+        if (this.launcherObj.bodyA){
+        var pointA = this.launcherObj.bodyA.position;
         var pointB = this.pointB
         strokeWeight(4);
         line(pointA.x, pointA.y, pointB.x, pointB.y);

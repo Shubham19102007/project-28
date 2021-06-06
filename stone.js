@@ -14,9 +14,8 @@ class stone
 		this.image=loadImage("images/stone.png");
 		this.body=Bodies.circle(this.x, this.y, this.r/2, options)
 		World.add(world, this.body);
-		}
 
-		
+	}
 	display()
 	{
 			var stonepos=this.body.position;		
@@ -31,4 +30,5 @@ class stone
 			pop()
 			
 	}
-	}	
+
+}
